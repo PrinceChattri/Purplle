@@ -1,0 +1,44 @@
+<section>
+  <form class="full-width" [formGroup]="productForm" #proForm="ngForm">
+    <ng-container *ngFor="let item of formDesignElements">
+      <mat-form-field class="example-form-field">
+        <mat-label>{{item.label}}</mat-label>
+        <input matInput type="text" formControlName="{{item.model}}" required>
+      </mat-form-field>
+    </ng-container>
+    <button mat-button [disabled]="proForm.form.invalid" (click)="addProduct()">Add Product</button>
+  </form>
+
+  <ng-container *ngIf="productsData">
+    <mat-card class="example-card mat-card-custom" *ngFor="let data of productsData; let i =index">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title></mat-card-title>
+        <mat-card-subtitle class="custom-title">{{data.title}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="{{data.image}}" alt="{{data.image}}" class="custom-image">
+      <mat-card-content>
+        <p class="custom-text">{{data.description}}</p>
+        <span class="inner-detail">
+          <span class="custom-price">${{data.price}}</span>
+          <span>{{data.category}}</span>
+        </span>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>Add To Cart</button>
+        <button mat-button>Buy Now</button>
+      </mat-card-actions>
+      <div class="hover-content">
+        <span class="material-icons" (click)="deleteProduct(i)">
+          delete
+        </span>
+        <span class="material-icons" (click)="editProduct(i)">
+          edit
+        </span>
+        <span class="material-icons" (click)="openPdpPage(i)">
+          pageview
+          </span>
+      </div>
+    </mat-card>
+  </ng-container>
+</section>
