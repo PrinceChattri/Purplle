@@ -1,0 +1,11 @@
+Created a Dummy Product listings along with CRUD operation of 
+creating a new product
+deleting a product
+editing of a product
+reading data
+
+Used angular material modules like button module, icon module, form modules for this test.
+
+on hover user have options for CRUD operation
+
+IVY has been set up, however i have set it to FALSE, as i was facing some issues in build while IVY enable
